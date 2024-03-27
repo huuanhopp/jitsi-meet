@@ -19,6 +19,8 @@ import { appNavigate } from './react/features/app/actions.native';
 import { App } from './react/features/app/components/App.native';
 import { setAudioMuted, setVideoMuted } from './react/features/base/media/actions';
 import { getRoomsInfo } from './react/features/breakout-rooms/functions';
+import {setTimeout} from "@testing-library/react-native/build/helpers/timers";
+import { connect, disconnect } from './react/features/base/connection/actions.native';
 
 
 interface IEventListeners {
@@ -97,6 +99,14 @@ export const JitsiMeeting = forwardRef<JitsiRefProps, IAppProps>((props, ref) =>
             const state = app.current.state.store.getState();
 
             return getRoomsInfo(state);
+        },
+        disconnect: () => {
+            const dispatch = app.current.state.store.dispatch;
+            dispatch(disconnect());
+        },
+        connect: () => {
+            const dispatch = app.current.state.store.dispatch;
+            dispatch(connect());
         }
     }));
 
@@ -149,7 +159,7 @@ export const JitsiMeeting = forwardRef<JitsiRefProps, IAppProps>((props, ref) =>
          * When you close the component you need to reset it.
          * In some cases it needs to be added as the parent component may have been destroyed.
          * Without this change the call remains active without having the jitsi screen.
-        */
+         */
         return () => {
             const dispatch = app.current?.state?.store?.dispatch;
 

@@ -43,13 +43,13 @@ interface IProps {
     dispatch: IStore['dispatch'];
 
     /**
-    * Is unsafe room warning available?
-    */
+     * Is unsafe room warning available?
+     */
     isUnsafeRoomWarningAvailable: boolean;
 
     /**
-    * Is welcome page available?
-    */
+     * Is welcome page available?
+     */
     isWelcomePageAvailable: boolean;
 }
 
@@ -79,18 +79,18 @@ const RootNavigationContainer = ({ dispatch, isUnsafeRoomWarningAvailable, isWel
                 initialRouteName = { initialRouteName }>
                 {
                     isWelcomePageAvailable
-                        && <>
-                            <RootStack.Screen // @ts-ignore
-                                component = { WelcomePage }
-                                name = { screen.welcome.main }
-                                options = { welcomeScreenOptions } />
-                            <RootStack.Screen
+                    && <>
+                        <RootStack.Screen // @ts-ignore
+                            component = { WelcomePage }
+                            name = { screen.welcome.main }
+                            options = { welcomeScreenOptions } />
+                        <RootStack.Screen
 
-                                // @ts-ignore
-                                component = { DialInSummary }
-                                name = { screen.dialInSummary }
-                                options = { dialInSummaryScreenOptions } />
-                        </>
+                            // @ts-ignore
+                            component = { DialInSummary }
+                            name = { screen.dialInSummary }
+                            options = { dialInSummaryScreenOptions } />
+                    </>
                 }
                 <RootStack.Screen
                     component = { ConnectingPage }
@@ -100,17 +100,17 @@ const RootNavigationContainer = ({ dispatch, isUnsafeRoomWarningAvailable, isWel
                     component = { Whiteboard }
                     name = { screen.conference.whiteboard }
                     options = { whiteboardScreenOptions } />
-                <RootStack.Screen
-                    component = { Prejoin }
-                    name = { screen.preJoin }
-                    options = { preJoinScreenOptions } />
-                {
-                    isUnsafeRoomWarningAvailable
-                    && <RootStack.Screen
-                        component = { UnsafeRoomWarning }
-                        name = { screen.unsafeRoomWarning }
-                        options = { unsafeMeetingScreenOptions } />
-                }
+                {/*<RootStack.Screen*/}
+                {/*    component = { Prejoin }*/}
+                {/*    name = { screen.preJoin }*/}
+                {/*    options = { preJoinScreenOptions } />*/}
+                {/*{*/}
+                {/*    isUnsafeRoomWarningAvailable*/}
+                {/*    && <RootStack.Screen*/}
+                {/*        component = { UnsafeRoomWarning }*/}
+                {/*        name = { screen.unsafeRoomWarning }*/}
+                {/*        options = { unsafeMeetingScreenOptions } />*/}
+                {/*}*/}
                 <RootStack.Screen
                     component = { ConferenceNavigationContainer }
                     name = { screen.conference.root }

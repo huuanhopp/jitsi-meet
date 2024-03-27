@@ -157,7 +157,7 @@ export const _VIDEO_INITIAL_MEDIA_STATE = {
     gumPending: IGUMPendingState.NONE,
     unmuteBlocked: false,
     facingMode: CAMERA_FACING_MODE.USER,
-    muted: 0,
+    muted: 1,
 
     /**
      * The video {@link Transform}s applied to {@code MediaStream}s by

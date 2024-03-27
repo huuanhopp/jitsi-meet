@@ -92,7 +92,7 @@ export function appNavigate(uri?: string, options: IReloadNowOptions = {}) {
                     return;
                 }
             } else {
-                navigateRoot(screen.connecting);
+                // navigateRoot(screen.connecting);
             }
         }
 
@@ -165,13 +165,14 @@ export function appNavigate(uri?: string, options: IReloadNowOptions = {}) {
 
         if (!options.hidePrejoin && isPrejoinPageEnabled(getState())) {
             if (isUnsafeRoomWarningEnabled(getState()) && isInsecureRoomName(room)) {
-                navigateRoot(screen.unsafeRoomWarning);
+                // navigateRoot(screen.unsafeRoomWarning);
             } else {
-                navigateRoot(screen.preJoin);
+                // dispatch(connect());
+                // navigateRoot(screen.conference.root);
             }
         } else {
-            dispatch(connect());
-            navigateRoot(screen.conference.root);
+            // dispatch(connect());
+            // navigateRoot(screen.conference.root);
         }
     };
 }
